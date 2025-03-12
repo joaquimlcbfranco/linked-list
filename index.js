@@ -40,33 +40,89 @@ const linkedList = () => {
   }
 
   const head = () => {
-    console.log(headNode.next)
     return headNode.next;
   }
 
   const tail = () => {
-    let current = head;
-    while (current.next != tail) {
+    let current = headNode;
+    while (current.next != tailNode) {
       current = current.next;
     }
-    console.log(current)
     return current;
   }
 
   const at = (index) => {
-    let current = head.next;
-    for (let count = 1; count <= index; count++) {
+    try {
+      let current = headNode.next;
+      for (let count = 1; count < index; count++) {
+        current = current.next;
+      }
+  
+      return current;
+    }
+    catch (error) {
+      throw new Error('Please provide a valid index');
+    }
+  }
+
+  const pop = () => {
+    let current = headNode;
+    while (current.next.next != tailNode) {
       current = current.next;
     }
+    current.next.next = null;
+    current.next = tailNode;
+  }
+
+  const contains = (value) => {
+    let current = headNode; 
+    while (current != tailNode) {
+      if (current.value === value) {
+        return true
+      }
+      current = current.next;
+    }
+    return false
+  }
+
+  const find = (value) => {
+    let current = headNode;
+    let count = 0;
+    while (current != tailNode) {
+      if (current.value === value) {
+        return count
+      }
+      count++;
+      current = current.next;
+    }
+    return null
+  }
+
+  const toString = () => {
+    let current = headNode.next;
+    let string = ''
+    while (current != tailNode) {
+      string += `( ${current.value} ) -> `;
+      current = current.next;
+    }
+    string += 'null';
+    console.log(string);
   }
 
   return {
     headNode,
+    tailNode,
     append,
     prepend,
     size,
     head,
+    tail,
+    at,
+    pop,
+    contains,
+    find,
+    toString,
   }
 }
 
-const test = linkedList();
+export { linkedList }
