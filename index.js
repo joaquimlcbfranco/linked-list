@@ -109,6 +109,30 @@ const linkedList = () => {
     console.log(string);
   }
 
+  const insertAt = (value, index) => {
+    const newNode = createNode(value);
+    let current = headNode;
+    let count = 0;
+    while (count != index - 1) {
+      count++;
+      current = current.next;
+    }
+    newNode.next = current.next;
+    current.next = newNode;
+  }
+
+  const removeAt = (index) => {
+    let current = headNode;
+    let count = 0;
+    while (count != index -1) {
+      count++;
+      current = current.next;
+    }
+    let removed = current.next;
+    current.next = current.next.next;
+    removed.next = null;
+  }
+
   return {
     headNode,
     tailNode,
@@ -122,6 +146,8 @@ const linkedList = () => {
     contains,
     find,
     toString,
+    insertAt,
+    removeAt,
   }
 }
 
