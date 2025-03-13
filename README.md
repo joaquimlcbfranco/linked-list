@@ -1,5 +1,6 @@
 # linked-list
-A basic implementation of a linked list.
+A basic implementation of a linked list.<br>
+linkedList.js uses classes, while linkedListFF.js is implemented with the use of factory functions.<br>
 Both the linked list JavaScript files can do the following:
 <br>
 <ul>
