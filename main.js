@@ -1,4 +1,5 @@
-import { linkedList } from "./index.js";
+import { linkedListFF } from "./linkedListFF.js";
+import { linkedList } from "./linkedList.js"
 
 // example uses class syntax - adjust as necessary
 const list = linkedList();
